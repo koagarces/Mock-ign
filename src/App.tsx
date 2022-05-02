@@ -1,26 +1,25 @@
 import React from "react";
 import styled from "styled-components";
-import logo from "./logo.svg";
-import "./App.css";
 import { configureStore } from "./store/configureStore";
 import { Provider } from "react-redux";
-import { Video } from "./components/Video";
-import Loader from "./components/Loader";
+import VideoList from "./components/VideoList";
+import { ActiveVideo } from "./components/ActiveVideo";
 
-const StyledButton = styled.button`
-  width: 200px;
-  height: 80px;
-  background-color: blue;
+const AppContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
 `;
+
 const store = configureStore();
 
 function App() {
   return (
     <Provider store={store}>
-      <div className="">
-        <Loader />
-        <Video />
-      </div>
+      <AppContainer>
+        <ActiveVideo />
+        <VideoList />
+      </AppContainer>
     </Provider>
   );
 }
